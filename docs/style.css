@@ -1,0 +1,43 @@
+:root{box-sizing:border-box;--aub:#2c001e;--pur:#77216f;--org:#e95420;--bar:#1a1a1a;--win:#300a24;--term:#300a24;--green:#8ae234;--blue:#729fcf;
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden;background:#2c001e;font-family:Ubuntu,system-ui,-apple-system,"Segoe UI",sans-serif;color:#fff;user-select:none}
+#desk{position:relative;height:100%;background:radial-gradient(ellipse at 20% 10%,#e95420 0%,transparent 45%),radial-gradient(ellipse at 85% 90%,#77216f 0%,transparent 55%),linear-gradient(135deg,#5e2750,#2c001e)}
+#top{position:absolute;top:0;left:0;right:0;height:30px;background:var(--bar);display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:13px;z-index:9999}
+#top b{font-weight:500}
+#dock{position:absolute;left:0;top:30px;bottom:0;width:62px;background:rgba(30,30,30,.82);display:flex;flex-direction:column;align-items:center;padding-top:10px;gap:10px;z-index:9000}
+.ico{width:44px;height:44px;border-radius:10px;border:0;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;color:#fff}
+.ico:hover{background:rgba(255,255,255,.18)}
+.ico.on:before{content:"";position:absolute;left:-9px;width:4px;height:4px;border-radius:50%;background:var(--org)}
+#icons{position:absolute;left:84px;top:50px;display:flex;flex-direction:column;gap:18px}
+.dsk{width:84px;text-align:center;font-size:12px;cursor:pointer;text-shadow:0 1px 3px #000}
+.dsk div{font-size:38px}
+.win{position:absolute;background:var(--win);border-radius:10px 10px 4px 4px;box-shadow:0 10px 40px rgba(0,0,0,.55);display:none;flex-direction:column;overflow:hidden;min-width:260px}
+.win.show{display:flex}
+.tb{height:34px;background:#3c3b37;display:flex;align-items:center;justify-content:space-between;padding:0 10px;cursor:move;font-size:13px;touch-action:none}
+.tb span.t{flex:1;text-align:center}
+.btns{display:flex;gap:8px}
+.btns i{width:16px;height:16px;border-radius:50%;background:#555;font-style:normal;font-size:10px;line-height:16px;text-align:center;cursor:pointer}
+.btns i.x{background:var(--org)}
+.body{flex:1;overflow:auto;user-select:text}
+#term{background:var(--term);padding:10px;font-family:"Ubuntu Mono",ui-monospace,Menlo,Consolas,monospace;font-size:15px;white-space:pre-wrap;word-break:break-word}
+.pg{color:var(--green)}.pb{color:var(--blue)}
+#tline{display:flex}#tin{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font:inherit;margin-left:6px}
+.pane{background:#fafafa;color:#2c2c2c;padding:16px;user-select:text}
+.pane h2{margin:0 0 8px;color:var(--org);font-size:20px}
+.pane p,.pane li{font-size:14px;line-height:1.5}
+.pane code{background:#eee;padding:1px 5px;border-radius:4px}
+.fl{display:grid;grid-template-columns:repeat(auto-fill,90px);gap:12px;padding:16px;background:#fafafa;color:#222;min-height:100%}
+.fl div{text-align:center;font-size:12px;cursor:pointer;word-break:break-all}.fl div b{display:block;font-size:34px}
+@media(max-width:600px){#icons{display:none}.win{left:70px!important;right:6px;width:auto!important}}
+#boot{position:absolute;inset:0;z-index:20000;background:#000;transition:opacity .6s;display:flex;align-items:center;justify-content:center}
+#bootscr{text-align:center}#bootscr .lg{font-size:70px;animation:pul 1.6s infinite}#bootscr h1{margin:6px 0 22px;font-weight:500;letter-spacing:3px}
+.pbar{width:240px;height:5px;background:#333;border-radius:3px;margin:0 auto 12px;overflow:hidden}#bp{height:100%;width:0;background:var(--org)}#bt{font-size:13px;color:#aaa}
+@keyframes pul{50%{transform:scale(1.12)}}
+#login{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:radial-gradient(ellipse at 20% 10%,#e95420 0%,transparent 45%),radial-gradient(ellipse at 85% 90%,#77216f 0%,transparent 55%),linear-gradient(135deg,#5e2750,#2c001e)}
+.av{width:96px;height:96px;border-radius:50%;background:var(--org);display:flex;align-items:center;justify-content:center;font-size:48px;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+#un,#pw{padding:10px 14px;border-radius:22px;border:0;outline:0;width:230px;text-align:center;font:inherit;background:rgba(255,255,255,.2);color:#fff}#un::placeholder,#pw::placeholder{color:#ddd}#lerr{color:#ffb4a0;font-size:13px;min-height:16px}.shake{animation:shk .3s}@keyframes shk{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+#lbtn{padding:9px 28px;border-radius:22px;border:0;background:var(--org);color:#fff;font:inherit;cursor:pointer}
+.win.show{animation:pop .25s ease-out}@keyframes pop{from{opacity:0;transform:scale(.92)}}
+.mrow{display:flex;align-items:center;gap:8px;font-size:13px;margin:6px 0}.mbar{flex:1;height:10px;background:#ddd;border-radius:5px;overflow:hidden}.mbar div{height:100%;background:var(--org);transition:width .5s}
+.plist{font-family:"Ubuntu Mono",monospace;font-size:13px;white-space:pre;margin:0}

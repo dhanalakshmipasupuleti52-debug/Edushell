@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Edushell</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Ubuntu+Mono&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="desk">
+<div id="boot"><div id="bootscr"><div class="lg">🎓</div><h1>EDUSHELL</h1><div class="pbar"><div id="bp"></div></div><div id="bt">Loading kernel…</div></div>
+<div id="login"><div class="av">🎓</div><b style="font-size:20px">Edushell Login</b><input id="un" placeholder="Username" aria-label="username" autocomplete="off" autocapitalize="off"><input id="pw" type="password" placeholder="Password" aria-label="password"><div id="lerr"></div><button id="lbtn">Sign In</button><small style="color:#ddd;text-align:center">Username: <b>student</b> &nbsp;|&nbsp; Password: <b>edushell123</b><br>Edushell · mini OS</small></div></div>
+<div id="top"><b>Activities &nbsp;·&nbsp; Edushell</b><b id="clock"></b><span>🔊 🔋 ⏻</span></div>
+<div id="dock">
+<button class="ico" data-w="term" title="Terminal" style="background:#4e2a4a">&gt;_</button>
+<button class="ico" data-w="files" title="Files" style="background:#3a5ba0">📁</button>
+<button class="ico" data-w="about" title="About EduShell" style="background:var(--org)">🎓</button>
+<button class="ico" data-w="monitor" title="System Monitor" style="background:#b3401d">📊</button>
+<button class="ico" data-w="learn" title="Commands" style="background:#2e7d32">📘</button>
+</div>
+<div id="icons"><div class="dsk" data-w="editor"><div>📝</div>Text Editor</div><div class="dsk" data-w="trash"><div>🗑️</div>Trash</div><div class="dsk" data-w="gh"><div>🐙</div>GitHub</div></div>
+<div id="icons2" style="display:none">
+<div class="dsk" data-w="about"><div>🎓</div>About EduShell</div>
+<div class="dsk" data-w="term"><div>🖥️</div>Terminal</div>
+<div class="dsk" data-w="gh"><div>🐙</div>GitHub</div>
+</div>
+
+<div class="win" id="w-term" style="left:110px;top:60px;width:640px;height:380px">
+<div class="tb"><div class="btns"><i data-key="c" title="Ctrl+C: kill foreground job" style="width:auto;padding:0 7px;border-radius:9px">^C</i><i data-key="z" title="Ctrl+Z: stop job" style="width:auto;padding:0 7px;border-radius:9px">^Z</i></div><span class="t">student@edushell: ~</span><div class="btns"><i data-min>–</i><i class="x" data-close>✕</i></div></div>
+<div class="body" id="term"><div id="tout"></div><div id="tline"><span><span class="pg">student@edushell</span>:<span class="pb">~</span>$</span><input id="tin" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="command"></div></div>
+</div>
+
+<div class="win" id="w-files" style="left:160px;top:100px;width:480px;height:320px">
+<div class="tb"><div class="btns"></div><span class="t">Files — Home</span><div class="btns"><i data-close>✕</i></div></div>
+<div class="body"><div class="fl" id="fl"></div></div>
+</div>
+
+<div class="win" id="w-about" style="left:200px;top:70px;width:460px;height:340px">
+<div class="tb"><div class="btns"></div><span class="t">About EduShell</span><div class="btns"><i data-close>✕</i></div></div>
+<div class="body pane"><h2>EduShell OS</h2>
+<p>EduShell is a mini operating system shell written in C. It shows how an OS reads a command, parses it, and runs it.</p>
+<ul><li>Command parsing and dispatch</li><li>Built-in commands</li><li>Process execution</li><li>Modular C code: <code>include/</code> and <code>src/</code></li></ul>
+<p>Open the Terminal on the dock and type <code>help</code>.</p></div>
+</div>
+
+<div class="win" id="w-monitor" style="left:220px;top:80px;width:420px;height:350px">
+<div class="tb"><div class="btns"></div><span class="t">System Monitor</span><div class="btns"><i data-close>✕</i></div></div>
+<div class="body pane" id="mon"></div></div>
+
+<div class="win" id="w-trash" style="left:260px;top:110px;width:360px;height:240px">
+<div class="tb"><div class="btns"></div><span class="t">Trash</span><div class="btns"><i data-close>✕</i></div></div>
+<div class="body pane" style="text-align:center;padding-top:50px"><div style="font-size:56px">🗑️</div><p>Trash is empty</p></div></div>
+
+<div class="win" id="w-editor" style="left:230px;top:90px;width:420px;height:320px">
+<div class="tb"><div class="btns"></div><span class="t">Text Editor</span><div class="btns"><i data-close>✕</i></div></div>
+<div class="body" style="background:#fafafa;color:#222;display:flex;flex-direction:column"><div style="display:flex;gap:6px;padding:8px"><input id="ef" value="mynote.txt" style="flex:1;padding:6px;min-width:0"><button id="es" style="padding:6px 14px;background:#e95420;color:#fff;border:0;border-radius:6px;cursor:pointer">Save</button></div><textarea id="ea" placeholder="Type your notes here, then Save..." style="flex:1;margin:0 8px;padding:8px;font-family:monospace;resize:none"></textarea><div id="em" style="color:#2e7d32;font-size:12px;padding:6px 10px;min-height:26px"></div></div></div>
+
+<div class="win" id="w-learn" style="left:240px;top:90px;width:440px;height:330px">
+<div class="tb"><div class="btns"></div><span class="t">Command Guide</span><div class="btns"><i data-close>✕</i></div></div>
+<div class="body pane"><h2>Commands</h2>
+<ul><li><code>help</code> list commands</li><li><code>ls</code> list files</li><li><code>cat file</code> show a file</li><li><code>touch file</code> create a file</li><li><code>rm file</code> delete a file</li><li><code>echo text</code> print text</li><li><code>neofetch</code> system info</li><li><code>history</code> <code>date</code> <code>whoami</code> <code>clear</code></li><li><code>sleep 30</code> or <code>count 20</code> run a job in the foreground</li><li><code>sleep 30 &amp;</code> run a job in the background</li><li><code>jobs</code> list jobs, <code>ps</code> list processes</li><li><code>fg %1</code> bring a job to the foreground</li><li><code>bg %1</code> resume a stopped job in the background</li><li><code>kill %1</code> terminate a job</li><li><code>Ctrl+Z</code> stop job, <code>Ctrl+C</code> kill job (or use the ^Z / ^C buttons)</li></ul>
+<p>Edit this list to match the commands in your real shell.</p></div>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
